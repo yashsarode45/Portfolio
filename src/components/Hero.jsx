@@ -75,7 +75,8 @@ const Hero = () => {
 
         {/* Resume */}
         <a
-          href="#_"
+          href="https://drive.google.com/file/d/18EjxImjBRzD0vPeEKP4kEcwvQX7pL6WT/view?usp=sharing"
+          target="_blank"
           className="relative inline-flex items-center xxs:max-md:mx-auto justify-center px-4 py-4 overflow-hidden 
           font-medium border border-pink transition-all h-16 rounded-full
            bg-purple-bg  group xxs:max-md:w-[52%] md:w-[70%] lg:w-[45%]  xl:w-[35%]"
