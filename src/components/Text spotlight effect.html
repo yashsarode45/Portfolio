@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%; /* 10px */
+      }
+
+      body {
+        background-color: #121112;
+        color: #fff;
+        font-family: sans-serif;
+        overflow-x: hidden;
+        user-select: none;
+      }
+
+      .title-wrapper {
+        margin: 7rem 3rem;
+      }
+
+      .title {
+        font-size: 17rem;
+        color: hsla(0, 0%, 100%, 0.08);
+
+        -webkit-background-clip: text;
+        background-image: radial-gradient(
+          closest-side,
+          #dc2c5a 100%,
+          transparent 0
+        );
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: 400px 400px;
+
+        transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    </style>
+  </head>
+  <body translate="no">
+    <main class="title-wrapper">
+      <h1 class="title">
+        Spotlight effect <br />
+        Using CSS and <br />
+        JavaScript
+      </h1>
+    </main>
+    <div class="h-96 bg-white">Hello</div>
+    <script id="rendered-js">
+      const spotlightSize = 400;
+
+      document.addEventListener(
+        "mousemove",
+        function (event) {
+          if (window.event) {
+            event = window.event;
+          }
+          let titleRect = document
+            .querySelector(".title")
+            .getBoundingClientRect();
+          let mouseX = event.clientX;
+          let spotlightX = mouseX - spotlightSize / 2 - titleRect.left;
+          let mouseY = event.clientY;
+          let spotlightY = mouseY - spotlightSize / 2 - titleRect.top;
+          const element = document.querySelector(".title");
+          element.style.backgroundPosition =
+            spotlightX + "px " + spotlightY + "px";
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
