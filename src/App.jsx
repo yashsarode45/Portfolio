@@ -5,7 +5,9 @@ import Information from "./components/Information";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedCursor from "react-animated-cursor";
-
+import Analytics from "analytics";
+import googleAnalytics from "@analytics/google-analytics";
+import Analytics from "@vercel/analytics";
 const App = () => {
   // Lenis smooth scroll
   useEffect(() => {
@@ -35,6 +37,16 @@ const App = () => {
     requestAnimationFrame(raf);
   }, []);
 
+  const analytics = Analytics({
+    app: "app-name",
+    plugins: [
+      googleAnalytics({
+        trackingId: "G-L4T59HDT4G",
+      }),
+    ],
+  });
+
+  analytics.page();
   return (
     <div id="app" className=" home relative">
       <AnimatedCursor
@@ -94,6 +106,7 @@ const App = () => {
         </div>
       </div>
       <Intro main-container />
+      <Analytics />
     </div>
   );
 };
