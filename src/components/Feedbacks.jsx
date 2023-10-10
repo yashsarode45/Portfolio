@@ -74,6 +74,7 @@ const Feedbacks = ({ data }) => {
     <motion.section
       ref={ref}
       variants={staggerContainer()}
+      style={{ opacity: scrollYProgress }}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
